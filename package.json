@@ -1,0 +1,32 @@
+{
+  "name": "next-cr",
+  "version": "1.0.0",
+  "description": "cr blog try use nextJs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Ulysses3000/rc-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "rc",
+    "river-clound-blog",
+    "next"
+  ],
+  "author": "Ulysses3000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ulysses3000/rc-blog/issues"
+  },
+  "homepage": "https://github.com/Ulysses3000/rc-blog#readme",
+  "dependencies": {
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
