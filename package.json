@@ -4,7 +4,7 @@
   "description": "cr blog try use nextJs",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 8090",
     "start": "next start",
     "build": "next build"
   },
@@ -14,7 +14,7 @@
   },
   "keywords": [
     "blog",
-    "rc",
+    "rc blog",
     "river-clound-blog",
     "next"
   ],
@@ -25,8 +25,17 @@
   },
   "homepage": "https://github.com/Ulysses3000/rc-blog#readme",
   "dependencies": {
+    "@zeit/next-stylus": "^1.0.1",
     "next": "^9.3.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "stylus": "^0.54.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.4",
+    "nib": "^1.1.2",
+    "postcss-css-variables": "^0.17.0",
+    "poststylus": "^1.0.0",
+    "rupture": "^0.7.1"
   }
 }
