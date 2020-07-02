@@ -4,8 +4,8 @@
   "description": "cr blog try use nextJs",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 8090",
-    "start": "next start",
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "build": "next build"
   },
   "repository": {

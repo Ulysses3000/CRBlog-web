@@ -4,13 +4,21 @@ import React from 'react'
 import TheGalaxy from './the-galaxy';
 import Rcfooter from './rc-footer';
 
-// import './index.styl'
+import './index.styl'
 
 export default class IndexPage extends React.Component {
 
   isSubPage = false;
 
+  static async getInitialProps({ req }) {
+    return { 
+      // a: 123400
+    }
+  }
+
   render () {
+    // console.log(this.props);
+    
     return (
       <div>
         <Head>
@@ -20,8 +28,10 @@ export default class IndexPage extends React.Component {
         </Head>
         <main>
           <TheGalaxy />
-          Welcome to river clound
-          <Rcfooter />
+          { this.isSubPage 
+              ? <Rcfooter />
+              : <div className="welcome">Welcome to river clound</div>
+          }
         </main>
       </div>
     )
