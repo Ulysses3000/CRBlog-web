@@ -16,16 +16,18 @@ function randomSum0NumList (length, maxDif = 10) {
 
 export default class TheGalaxy extends React.Component {
   upsideDown = false;
-  // xRotate = 86;
   xRotate = 0;
 
   render () {
-    let ringCount = 5;
+    let ringCount = 10;
     let ringMinWidth = 50;
     let radomList = randomSum0NumList(ringCount, (100 - ringMinWidth) / ringCount)
     let xRotateRadomList = randomSum0NumList(ringCount, 120)
     let yRotateRadomList = randomSum0NumList(ringCount, 120)
-    let animationDurationList = randomSum0NumList(ringCount, 100)
+    let zRotateRadomList = randomSum0NumList(ringCount, 120)
+    let animationDurationList = Array.from({length: ringCount}, v=> {
+      return ~~(Math.random()*50+15)
+    })
     return (
       <div>
         <div className="galaxy-box">
@@ -34,21 +36,23 @@ export default class TheGalaxy extends React.Component {
             {
               Array.from({length: ringCount}, (v, i) => {
                 let width = i * 50 / ringCount + ringMinWidth + radomList[i]
+                let xRotate = 0 // xRotateRadomList[i]
                 return (
                   <li key={i} style={ {
                       width:  width + '%',
-                      // transform: `
-                      //   translate(-50%, -50%) 
-                      //   rotateX(${xRotateRadomList[i]}deg) 
-                      //   rotateY(${yRotateRadomList[i]}deg)
-                      // `
+                      transform: `
+                        translate(-50%, -50%) 
+                        rotateX(${xRotate}deg) 
+                        rotateY(${yRotateRadomList[i]}deg)
+                        rotateZ(${zRotateRadomList[i]}deg)
+                      `
                     } }>
-                      <div style={{ animationDirection: animationDurationList[i] + 's' }}>
-                        <span />
+                      <div style={{ 
+                          animationDuration: animationDurationList[i] + 's' 
+                        }}>
                       </div>
                   </li>
                 )
-                // return i
               })
                 
             }

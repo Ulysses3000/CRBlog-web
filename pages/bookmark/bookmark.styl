@@ -1,4 +1,47 @@
 $font-size = 50px
 .bookmark
-  font-size $font-size
-  transform: translate(50%, 50%)
+  // font-size $font-size
+  // transform: translate(50%, 50%)
+  perspective: 800px
+  width 300px
+  height 300px
+  position relative
+  div 
+    transform-style preserve-3d
+  > div
+    transform: rotate(0deg)
+    width 300px
+    height 300px
+    // transform-style preserve-3d
+
+.box1,.box2,.box3,.box4,.box5, .box6 {
+    border: 1px solid #fff
+    width 300px
+    height 300px
+    position absolute
+  }
+  
+.box1 {
+  transform: translateZ(150px)
+  background-color rgba(255,0,200, .2)
+}
+.box2 {
+  transform: translateZ(-150px)
+  background-color rgba(255,0,200, .2)
+}
+.box3 {
+  transform: translateX(150px) rotateY(90deg)
+  background: rgba(80,255,0, .5)
+}
+.box4 {
+  transform: translateX(-150px) rotateY(90deg)
+  background: rgba(80,255,0, .5)
+}
+.box5 {
+  transform: translateY(-150px) rotateX(90deg)
+  background: rgba(255,255,0, .5)
+}
+.box6 {
+  transform: translateY(150px) rotateX(90deg)
+  background: rgba(255,255,0, .5)
+}
