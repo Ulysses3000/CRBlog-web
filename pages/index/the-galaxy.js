@@ -19,7 +19,7 @@ export default class TheGalaxy extends React.Component {
   xRotate = 0;
 
   render () {
-    let ringCount = 10;
+    let ringCount = 6;
     let ringMinWidth = 50;
     let radomList = randomSum0NumList(ringCount, (100 - ringMinWidth) / ringCount)
     let xRotateRadomList = randomSum0NumList(ringCount, 120)
@@ -29,38 +29,36 @@ export default class TheGalaxy extends React.Component {
       return ~~(Math.random()*50+15)
     })
     return (
-      <div>
-        <div className="galaxy-box">
-          <div className="center"></div>
-          <ul style={{ transform: `rotateX(${this.xRotate}deg)` }}>
-            {
-              Array.from({length: ringCount}, (v, i) => {
-                let width = i * 50 / ringCount + ringMinWidth + radomList[i]
-                let xRotate = 0 // xRotateRadomList[i]
-                return (
-                  <li key={i} style={ {
-                      width:  width + '%',
-                      transform: `
-                        translate(-50%, -50%) 
-                        rotateX(${xRotate}deg) 
-                        rotateY(${yRotateRadomList[i]}deg)
-                        rotateZ(${zRotateRadomList[i]}deg)
-                      `
-                    } }>
-                      <div style={{ 
-                          animationDuration: animationDurationList[i] + 's' 
-                        }}>
-                      </div>
-                  </li>
-                )
-              })
-                
-            }
-          </ul>
-          <div className="section mine">
-            二十
-          </div>
-        </div>
+      <div className="galaxy-box">
+        <div className="center"></div>
+        <ul style={{ transform: `rotateX(${this.xRotate}deg)` }}>
+          {
+            Array.from({length: ringCount}, (v, i) => {
+              let width = i * 50 / ringCount + ringMinWidth + radomList[i]
+              let xRotate = 0 // xRotateRadomList[i]
+              return (
+                <li key={i} style={ {
+                    width:  width + '%',
+                    transform: `
+                      translate(-50%, -50%) 
+                      rotateX(${xRotate}deg) 
+                      rotateY(${yRotateRadomList[i]}deg)
+                      rotateZ(${zRotateRadomList[i]}deg)
+                    `
+                  } }>
+                    <div style={{ 
+                        animationDuration: animationDurationList[i] + 's' 
+                      }}>
+                    </div>
+                </li>
+              )
+            })
+              
+          }
+        </ul>
+        {/* <div className="section mine">
+          二十
+        </div> */}
       </div>
     )
   }
