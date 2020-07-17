@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react'
-import './index.styl'
+import './blog-index.styl'
 
 import Bar from './bar'
 

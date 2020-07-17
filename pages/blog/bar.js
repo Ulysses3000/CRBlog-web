@@ -3,9 +3,11 @@ import React from 'react'
 export default class BlogBar extends React.Component {
   isHorizontal = false
 
+  barType = 'time'
+
   unit = 'y' // 'm'
 
-  timeData = ['20200101', '20200102', '20200502', '20200602', '20200702', '20200902', '20201002']
+  timeData = ['20200101', '20200102', '20100502', '201900602', '20200702', '20200902', '20201002']
 
 
   formatTimes () {
@@ -35,33 +37,53 @@ export default class BlogBar extends React.Component {
         d.push({ id: key, children: [value] })
       }
     })
+    d.forEach(di => {
+      di.children = [...new Set(di.children)]
+    })
     return d;
   }
 
+  timeHandle (e) {
+    console.log(e.target);
+  }
+
+  tagList = [ {id: 1, name: 'js'}, {name: 'html', id: 2}, {name: 'css', id: 3} ]
+
   render () {
     return (
-      <div className="bar">
+      <div className="bar-wrap">
         <div className="switch">
           <button>时间</button>
           <button>标签</button>
         </div>
-        <div className="bar">
-          {
-            this.renderData.forEach(e => {
-              return (
+        {
+          this.barType == 'time' 
+            ? <div className="bar" onClick={ this.timeHandle }>
+                {
+                  this.renderData.map(e => {
+                    return (
+                      <ul key={e.id}>
+                        <li className="ulTitle">{ e.id }</li>
+                        {
+                          e.children.map( item => {
+                            return (<li key={item} data-item-value={e.id + item}> { item } </li>)
+                          } )
+                        }
+                      </ul>
+                    )
+                  })
+                }
+              </div>
+            : <div className="tagList">
                 <ul>
-                  <li className="ulTitle">e.id</li>
                   {
-                    e.children.forEach( item => {
-                      return (<li> { item } </li>)
-                    } )
+                    this.tagList.map(t => {
+                      return <li key={t.id}> {t.name} </li>
+                    })
                   }
                 </ul>
-              )
-            })
-          }
-        </div>
-        <div className="tagList"></div>
+              </div>
+        }
       </div>
     )
   }
