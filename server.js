@@ -12,7 +12,6 @@ app.prepare().then(() => {
   createServer((req, res) => {
     const parsedUrl = parse(req.url, true)
     const { pathname, query } = parsedUrl
-
     // blog detail router
     let blogId = /(?<=\/blog\/)\d+$/.exec(pathname)
     if (blogId) {

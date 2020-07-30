@@ -12,6 +12,7 @@ export default class BlogList extends React.Component {
           <title>云川·Blog</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta name="keywords" content="云川·RC, 云川, Clound River, clound river, river clound, River Clound, RC Blog, 云川博客" />
+          <link rel="icon" href="/images/logo_000.png" />
         </Head>
         <div className="head">
           <div className="brand">

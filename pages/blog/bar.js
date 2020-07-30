@@ -9,6 +9,10 @@ export default class BlogBar extends React.Component {
 
   timeData = ['20200101', '20200102', '20100502', '201900602', '20200702', '20200902', '20201002']
 
+  constructor () {
+    super();
+    this.state = {}
+  }
 
   formatTimes () {
     let tempStrArr = [...new Set(this.timeData)]

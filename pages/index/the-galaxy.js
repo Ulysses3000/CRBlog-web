@@ -1,7 +1,7 @@
 import React from 'react'
 import './the-galsxy.styl'
 
-function randomSum0NumList (length, maxDif = 10) {
+export function randomSum0NumList (length, maxDif = 10) {
   let max = maxDif / 2;
   let list1Length = ~~( (length - 2) / 2)
   let list2Length = length - 2 - list1Length;
@@ -19,15 +19,17 @@ export default class TheGalaxy extends React.Component {
   xRotate = 0;
 
   render () {
-    let ringCount = 6;
-    let ringMinWidth = 50;
-    let radomList = randomSum0NumList(ringCount, (100 - ringMinWidth) / ringCount)
-    let xRotateRadomList = randomSum0NumList(ringCount, 120)
-    let yRotateRadomList = randomSum0NumList(ringCount, 120)
-    let zRotateRadomList = randomSum0NumList(ringCount, 120)
-    let animationDurationList = Array.from({length: ringCount}, v=> {
-      return ~~(Math.random()*50+15)
-    })
+    let {
+      ringCount,
+      ringMinWidth,
+      galaxyRandomData
+    } = this.props;
+    let {
+      radomList,
+      yRotateRadomList,
+      zRotateRadomList,
+      animationDurationList
+    } = galaxyRandomData;
     return (
       <div className="galaxy-box">
         <div className="center"></div>
@@ -56,9 +58,6 @@ export default class TheGalaxy extends React.Component {
               
           }
         </ul>
-        {/* <div className="section mine">
-          二十
-        </div> */}
       </div>
     )
   }
