@@ -2,10 +2,12 @@
 
 html,body
   height 100%;
-  background-color #f8f8f8
 
-.page, #__next
+.blog-list-page, #__next
   height 100%
+
+.blog-list-page
+  background-color #f8f8f8
 
 .head,
 .bar-wrap,
@@ -19,13 +21,59 @@ html,body
   padding: 0 50px;
   display flex
   justify-content: space-between
+  .brand
+    img
+      margin-right 8px;
+      vertical-align middle
+    h1
+      display inline-block
+      vertical-align middle
+      font-size 0
+      height 48px
+      line-height 48px
+      a
+        color: #999;
+        font-size 14px;
+        text-decoration: none;
+      a:hover
+        color: #777;
+
   input
     border 1px solid #ddd
     background-color #fafafa
+    color #666
+    font-size 15px
     outline: none
+    border-radius: 3px;
+    padding: 0 16px;
     height 32px
     line-height 32px
     margin-top 6px
+    width 340px
+    transition: all .3s;
+  input:focus
+    width 540px
+  .page-nav
+    padding-top 13px
+    transition: all .3s
+    .icon
+      display grid
+      grid-template-columns: 7px 7px 7px;
+      grid-template-rows: 7px 7px 7px;
+      transition: all .3s
+      grid-gap: 1px;
+      span
+        background-color #999;
+        // width 7px
+        // height 7px
+        border-radius: 1px;
+    &:hover
+      .icon
+        transform: scale(1.2);
+        transform-origin: 50%;
+        span
+          background-color #666
+
 
 .main
   padding-top 20px
